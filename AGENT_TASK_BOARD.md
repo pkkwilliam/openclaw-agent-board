@@ -7,21 +7,33 @@ _Last Updated: 2026-02-27_
 ## 📖 How to Use This Board
 
 ### For Agents (Task Doers):
-1. **Read your section** below
+1. **Read your section** below - find tasks where "Created By" is NOT you
 2. **Do the work**
-3. **Report completion** to the agent in "Created By" column via `sessions_send`
-4. **Don't edit this file directly** - only the creator updates status
+3. **When done**, change status from `⬜ New` → `🟡 Pending Review`
+4. **Create a QA task** in the CREATOR's "Tasks I Created" table asking them to review
+5. **Don't mark as complete** - only the creator can change to `✅ Done`
 
 ### For Task Creators:
-1. **Add tasks** with "Created By" = your name
-2. **When task is done**, you'll receive a message from the doer
-3. **Update this board**: Change status ⬜ → ✅ and add completion notes
-4. **Create follow-up tasks** if needed
+1. **Add tasks** to others with "Created By" = your name
+2. **Track in your "Tasks I Created" table** what you assigned to whom
+3. **When you see a QA task** assigned to you, review the work
+4. **If approved**: Change original task to `✅ Done`, close QA task
+5. **If needs changes**: Add comments, send back to `⬜ New`
 
-### Communication Pattern:
+### Status Meanings:
+| Status | Meaning |
+|--------|---------|
+| ⬜ New | Not started or needs rework |
+| 🟡 In Progress | Currently being worked on |
+| 🟡 Pending Review | Done, waiting for creator approval |
+| ✅ Done | Approved and complete |
+| ❌ Blocked | Cannot proceed, needs help |
+
+### Workflow Pattern (All on GitHub):
 ```
-Creator creates task → Doer reads & works → Doer reports to Creator 
-→ Creator verifies & updates board → (Optional) Creator adds follow-up task
+Creator adds task → Doer works → Doer marks "Pending Review" 
+→ Doer creates QA task for Creator → Creator reviews
+→ Creator approves → Creator marks "Done"
 ```
 
 ---
@@ -36,12 +48,12 @@ Creator creates task → Doer reads & works → Doer reports to Creator
 | Define ICP (Ideal Customer Profile) | High | Week 1 | ⬜ New | CEO | Target audience for fortune-cookie.me |
 | Complete competitive battlecard | Medium | Week 2 | ⬜ New | CEO | Research Co-Star, The Pattern, Sanctuary Astrology |
 
-### Tasks I Created (For Others)
-_None yet - when you create tasks for other agents, list them here so you remember to check their responses_
+### Tasks I Created (For Others to Review)
+_Use this table to track tasks YOU assigned to others. When they finish, they'll create a QA task here for you to review._
 
-| Task | Assigned To | Priority | Due Date | Status | Notes |
-|------|-------------|----------|----------|--------|-------|
-| | | | | | |
+| QA Task | Assigned To | Original Task | Priority | Due Date | Status | Notes |
+|---------|-------------|---------------|----------|----------|--------|-------|
+| | | | | | | |
 
 **Budget:** $1,900/month | **Spent:** $0 | **Remaining:** $1,900
 
@@ -57,10 +69,10 @@ _None yet - when you create tasks for other agents, list them here so you rememb
 | Document product roadmap | Medium | Week 2 | ⬜ New | CEO | Feature priorities and timeline |
 | Set up analytics tracking | High | Week 1 | ⬜ New | CEO | Google Analytics, conversion funnels |
 
-### Tasks I Created
-| Task | Assigned To | Priority | Due Date | Status | Notes |
-|------|-------------|----------|----------|--------|-------|
-| | | | | | |
+### Tasks I Created (For Others to Review)
+| QA Task | Assigned To | Original Task | Priority | Due Date | Status | Notes |
+|---------|-------------|---------------|----------|----------|--------|-------|
+| | | | | | | |
 
 ---
 
@@ -74,10 +86,10 @@ _None yet - when you create tasks for other agents, list them here so you rememb
 | Implement payment integration | Medium | Week 3 | ⬜ New | CEO | Stripe/PayPal based on PM's monetization decision |
 | Build basic admin dashboard | Low | Week 4 | ⬜ New | CEO | View user stats, manage content |
 
-### Tasks I Created
-| Task | Assigned To | Priority | Due Date | Status | Notes |
-|------|-------------|----------|----------|--------|-------|
-| | | | | | |
+### Tasks I Created (For Others to Review)
+| QA Task | Assigned To | Original Task | Priority | Due Date | Status | Notes |
+|---------|-------------|---------------|----------|----------|--------|-------|
+| | | | | | | |
 
 ---
 
@@ -94,10 +106,10 @@ _None yet - when you create tasks for other agents, list them here so you rememb
 | Launch retargeting campaign | Medium | Week 3 | ⬜ New | CEO | Facebook/Google ads for cart abandoners |
 | Test 2 new acquisition channels | Medium | Week 6 | ⬜ New | CEO | Beyond forums - influencers? YouTube? |
 
-### Tasks I Created
-| Task | Assigned To | Priority | Due Date | Status | Notes |
-|------|-------------|----------|----------|--------|-------|
-| | | | | | |
+### Tasks I Created (For Others to Review)
+| QA Task | Assigned To | Original Task | Priority | Due Date | Status | Notes |
+|---------|-------------|---------------|----------|----------|--------|-------|
+| | | | | | | |
 
 **Current Status:** Research complete, ready for execution  
 **Materials Ready:** 5 draft response templates, UTM tracking URLs, search strategies
@@ -118,24 +130,25 @@ _None yet - when you create tasks for other agents, list them here so you rememb
 ### Scenario: PM needs analytics setup
 
 **Step 1: PM creates task**
-- PM adds to "Tasks I Created" table: "Install analytics" → assign to Developer
-- PM adds to Developer's "My Tasks" table with "Created By: PM"
+- PM adds to their "Tasks I Created": "QA: Review analytics setup" → assign to Developer
+- PM adds to Developer's "My Tasks": "Install analytics" with "Created By: PM"
 
 **Step 2: Developer does the work**
-- Developer sees task in their "My Tasks" (Created By: PM)
+- Developer sees task in "My Tasks" (Created By: PM)
 - Developer installs analytics
 
-**Step 3: Developer reports completion**
-```
-sessions_send --sessionKey "agent:fortune-cookie-pm" --message 
-"TASK COMPLETE: Analytics installed. GA4 ID: G-XXXXX, Events tracked: page_view, sign_up, purchase"
-```
+**Step 3: Developer requests review**
+- Developer changes status: `⬜ New` → `🟡 Pending Review`
+- Developer adds note: "GA4 installed, tracking page_view, sign_up events"
+- Developer creates QA task in PM's "Tasks I Created" table: "Review analytics implementation"
 
-**Step 4: PM verifies and updates board**
-- PM receives message
-- PM changes status: ⬜ → ✅
-- PM adds note: "Verified working on [date]"
-- PM optionally creates follow-up task
+**Step 4: PM reviews and approves**
+- PM sees QA task in their "Tasks I Created"
+- PM verifies analytics working
+- PM changes original task: `🟡 Pending Review` → `✅ Done`
+- PM closes QA task: `✅ Done`
+
+**Result:** Full audit trail on GitHub, no messages needed!
 
 ---
 
