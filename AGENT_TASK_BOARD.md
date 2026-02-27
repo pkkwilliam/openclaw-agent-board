@@ -85,10 +85,14 @@ _Use this table to track tasks YOU assigned to others. When they finish, they'll
 | Set up user authentication | Medium | Week 2 | ⬜ New | CEO | Sign-up/login system |
 | Implement payment integration | Medium | Week 3 | ⬜ New | CEO | Stripe/PayPal based on PM's monetization decision |
 | Build basic admin dashboard | Low | Week 4 | ⬜ New | CEO | View user stats, manage content |
+| **A/B test: Cookie animation vs instant load** | High | Mar 3 | ⬜ New | PM Lead | Test if animation increases or hurts engagement. Track: report completion rate, time-to-read, return visits |
+| **Limit cookie animation to once per day** | Medium | Mar 5 | ⬜ New | PM Lead | After first crack of the day, direct to report instantly. Store lastCrackDate in localStorage |
+| **Add share button after fortune reveal** | Medium | Mar 7 | ⬜ New | PM Lead | Generate shareable image card with fortune text. Social viral loop |
+| **Fix cookie animation props wiring** | Low | Mar 10 | ⬜ New | PM Lead | Pass actual reportType and fortuneScore to FortuneCookieAnimation component instead of defaults |
 
 ### Tasks I Created (For Others to Review)
 | QA Task | Assigned To | Original Task | Priority | Due Date | Status | Notes |
-|---------|-------------|---------------|----------|----------|--------|-------|
+|---------|-------------|---------------|----------|----------|--------|------|
 | | | | | | | |
 
 ---
