@@ -77,7 +77,7 @@ _Use this table to track tasks YOU assigned to others. When they finish, they'll
 
 ---
 
-## 💻 Fortune Cookie Developer
+## 💻 Fortune Cookie Frontend Developer
 
 ### My Tasks
 | Task | Priority | Due Date | Status | Created By | Notes |
